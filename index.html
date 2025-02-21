@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Kewfoo</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style1.css">
+        <!-- font -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <!-- bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <!-- links to javascript files -->
+        <script src="cart.js"></script>
+        <script src="signup.js"></script>
+        <script src="like.js"></script>
+        <script src="review.js"></script>
+        <style>
+        :root {
+            --blueviolet: #d70dff;
+        }
+        body {
+            background: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 1rem;
+            border-radius: 5rem;
+            background: #8a2be2; 
+            color: #fff;
+            padding: .9rem 3.5rem;
+            cursor: pointer;
+            font-size: 1.7rem;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+        }
+        .btn:hover {
+            background: var(--blueviolet);
+        }
+    </style>
+        <script>
+            function copyLink(event) {
+                event.preventDefault();
+                navigator.clipboard.writeText(window.location.href)
+               .then(()=> alert('Link copied to clipboard'))
+               .catch(()=> alert('Failed to copy link', 'error'));
+            }
+
+            document.addEventListener("DOMContentLoaded",function(){
+                let loggedInUser = localStorage.getItem("loggedInUser");
+                let userIcon = document.getElementById("user-icon");
+                let logoutBtn = document.getElementById("logout-btn");
+
+                if(loggedInUser){
+                    userIcon.style.textcontent = loggedInUser;
+                    logoutBtn.style.display = "inline-block";
+                }else{
+                    logoutBtn.style.display = "none";
+                }
+
+                logoutBtn.addEventListener("click",function(){
+                    localStorage.removeItem("loggedInUser");
+                    window.location.href = "signup.html";
+                });
+        });
+        </script>  
+    </head>
+    <body>
+        <header>
+            <input type="checkbox" id="toggler">
+            <label for="toggler" class="fas fa-bars"></label>
+            <a href="#" class="logo">Kewfoo<span>.</span></a>
+            <img class="logo" src="naza.jpg"style="width: 500;height: 100px;" alt="Kewfoo">
+            <nav>
+                <ul class="navbar">
+                    <a href="index.html#home">Home</a>
+                    <a href="index.html#about">About</a>
+                    <a href="index.html#products">Product</a>
+                    <a href="index.html#review">review</a>
+                </ul>
+            </nav>
+            <div class="icons">
+                <a href="signup.html" id="user-icon" class="fas fa-user"></a>
+                <botton id="logout-btn" style="display: none;padding: 6px 10px; border: none; background: rgb(255, 26, 26); color: white; border-radius: 5px; cursor: pointer;">
+                    Logout
+                </botton>
+                <a href="cart.html" class="fas fa-shopping-cart"></a>
+                <a href="like.html" class="fas fa-heart"></a>
+            </div>
+        </header>
+
+
+        <!--home page --> 
+    <section class="home" id="home">
+        <div class="content">
+            <h3>good design</h3>
+            <span>beautiful</span>
+            <p>Kewfoo is a fun online marketplace that makes shopping for Momonga plushies super easy and enjoyable. 
+                Whether you’re after the latest styles or unique designs, Kewfoo has a great selection of Momonga plushies to choose from. They really prioritize security, 
+                so buying and selling here feels safe for everyone. With a clean layout and easy navigation, finding the perfect plushie is a breeze. Plus, sellers get awesome tools to manage their shops, keep up with orders, 
+                and connect with buyers. If you're on the hunt for some adorable Momonga plushies or looking to sell your own, Kewfoo is the go-to spot to shop with confidence.</p>
+            <a href="index.html#products" class="btn">shop now</a>
+        </div>
+    </section>
+    <!--home page end --> 
+
+    <!--about page -->
+    <section class="about" id="about">
+        <h1 class="heading"> <span>about</span> us</h1>
+                
+        <div class="row">
+            <div class="video-container">
+            <video src="video.mp4" loop autoplay muted></video>
+            <h3>best momonga</h3>
+        </div>
+         <div class="content">
+            <h3>our story</h3>
+            <p>At Kewfoo, we believe that cute momonga is more than just clothing—it’s a form of self-expression. That’s why we’re dedicated to providing you with</p>
+            <p>the best selection of styles, trends, and designs that help you look and feel your best. Our team of fashion experts is always on the lookout for the latest</p>
+            <a href="#" class="btn">learn more</a>
+        </div>
+    </section>
+    <!--about page end -->
+
+    <!--icons section starts-->
+
+    <section class="icons-container">
+        <div class="icons">
+            <img src="icon-1.png" alt="">
+                <div class="info">
+                <h3>free delivery</h3>
+                <span>on all order</span>
+            </div>  
+        </div>
+        
+        <div class="icons">
+        <img src="icon-2.png" alt="">
+            <div class="info">
+            <h3>5 day returns</h3>
+            <span>moneyback guarantee</span>
+          </div>  
+        </div>
+
+        <div class="icons">
+        <img src="icon-3.png" alt="">
+                <div class="info">
+                <h3>offer and gifts</h3>
+                <span>on all order</span>
+            </div>  
+        </div>
+
+        <div class="icons">
+        <img src="icon-4.png" alt="">
+                <div class="info">
+                <h3>secure payment</h3>
+                <span>protected by paypal</span>
+            </div>  
+        </div>
+    </section>
+
+    <!--icons section end-->
+
+
+    <!-- prodcuts section starts  -->
+
+<section class="products" id="products">
+
+    <h1 class="heading"> Discount <span>products</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <span class="discount">-10%</span>
+            <div class="image">
+                <img src="fei1.webp" alt="">
+                <div class="icons">
+                    <button class="fas fa-heart" onclick="event.preventDefault(); addTolike('baby momonga', 'fei1.webp');"></button>
+                    <button class="cart-btn" onclick="event.preventDefault(); addToCart('baby momonga', 12.99,'fei1.webp');">Add to Cart</button>
+                    <button class="fas fa-share" onclick="copyLink(event)"></button>
+                </div>
+            </div>
+            <div class="content">
+                <h3>baby momonga</h3>
+                <div class="price"> $12.99 <span>$15.99</span> </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-10%</span>
+            <div class="image">
+                <img src="fei2.webp" alt="">
+                <div class="icons">
+                    <button class="fas fa-heart" onclick="event.preventDefault(); addTolike('student momonga', 'fei2.webp');"></button>
+                    <button class="cart-btn" onclick="event.preventDefault(); addToCart('student momonga', 12.99,'fei2.webp');">Add to Cart</button>
+                    <button class="fas fa-share" onclick="copyLink(event)"></button>
+                </div>
+            </div>
+            <div class="content">
+                <h3>student momonga</h3>
+                <div class="price"> $12.99 <span>$15.99</span> </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-5%</span>
+            <div class="image">
+                <img src="fei3.webp" alt="">
+                <div class="icons">
+                    <button class="fas fa-heart" onclick="event.preventDefault(); addTolike('princess momonga', 'fei3.webp');"></button>
+                    <button class="cart-btn" onclick="event.preventDefault(); addToCart('princess momonga', 12.99,'fei3.webp');">Add to Cart</button>
+                    <button class="fas fa-share" onclick="copyLink(event)"></button>
+                </div>
+            </div>
+            <div class="content">
+                <h3>princess momonga</h3>
+                <div class="price"> $12.99 <span>$15.99</span> </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-20%</span>
+            <div class="image">
+                <img src="fei4.webp" alt="">
+                <div class="icons">
+                    <button class="fas fa-heart" onclick="event.preventDefault(); addTolike('Winter  momonga', 'fei4.webp');"></button>
+                    <button class="cart-btn" onclick="event.preventDefault(); addToCart('Winter  momonga', 12.99,'fei4.webp');">Add to Cart</button>
+                    <button class="fas fa-share" onclick="copyLink(event)"></button>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Winter  momonga</h3>
+                <div class="price"> $12.99 <span>$15.99</span> </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-17%</span>
+            <div class="image">
+                <img src="fei5.webp" alt="">
+                <div class="icons">
+                    <button class="fas fa-heart" onclick="event.preventDefault(); addTolike('circus momonga', 'fei5.webp');"></button>
+                    <button class="cart-btn" onclick="event.preventDefault(); addToCart('circus momonga', 12.99,'fei5.webp');">Add to Cart</button>
+                    <button class="fas fa-share" onclick="copyLink(event)"></button>
+                </div>
+            </div>
+            <div class="content">
+                <h3>circus momonga</h3>
+                <div class="price"> $12.99 <span>$15.99</span> </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-3%</span>
+            <div class="image">
+                <img src="fei6.webp" alt="">
+                <div class="icons">
+                    <button class="fas fa-heart" onclick="event.preventDefault(); addTolike('outing momonga', 'fei6.webp');"></button>
+                    <button class="cart-btn" onclick="event.preventDefault(); addToCart('outing momonga', 12.99,'fei6.webp');">Add to Cart</button>
+                    <button class="fas fa-share" onclick="copyLink(event)"></button>
+                </div>
+            </div>
+            <div class="content">
+                <h3>outing momonga</h3>
+                <div class="price"> $12.99 <span>$15.99</span> </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-18%</span>
+            <div class="image">
+                <img src="fei7.webp" alt="">
+                <div class="icons">
+                    <button class="fas fa-heart" onclick="event.preventDefault(); addTolike('panda momonga', 'fei7.webp');"></button>
+                    <button class="cart-btn" onclick="event.preventDefault(); addToCart('panda momonga', 12.99,'fei7.webp');">Add to Cart</button>
+                    <button class="fas fa-share" onclick="copyLink(event)"></button>
+                </div>
+            </div>
+            <div class="content">
+                <h3>panda momonga</h3>
+                <div class="price"> $12.99 <span>$15.99</span> </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-10%</span>
+            <div class="image">
+                <img src="fei8.jpg" alt="">
+                <div class="icons">
+                    <button class="fas fa-heart" onclick="event.preventDefault(); addTolike('kuromi momonga', 'fei8.jpg');"></button>
+                    <button class="cart-btn" onclick="event.preventDefault(); addToCart('kuromi momonga', 12.99,'fei8.jpg');">Add to Cart</button>
+                    <button class="fas fa-share" onclick="copyLink(event)"></button>
+                </div>
+            </div>
+            <div class="content">
+                <h3>kuromi momonga</h3>
+                <div class="price"> $12.99 <span>$15.99</span> </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-5%</span>
+            <div class="image">
+                <img src="fei9.jpg" alt="">
+                <div class="icons">
+                    <button class="fas fa-heart" onclick="event.preventDefault(); addTolike('demon momonga', 'fei9.jpg');"></button>
+                    <button class="cart-btn" onclick="event.preventDefault(); addToCart('demon momonga', 12.99,'fei9.jpg');">Add to Cart</button>
+                    <button class="fas fa-share" onclick="copyLink(event)"></button>
+                </div>
+            </div>
+            <div class="content">
+                <h3>demon momonga</h3>
+                <div class="price"> $12.99 <span>$15.99</span> </div>
+            </div>
+        </div>
+
+    </div>
+
+    <button class="btn" onclick="window.location.href='cart.html'">go to Cart</button>
+</section>
+
+<!-- prodcuts section ends -->
+
+
+
+<!-- review section starts -->
+    <section class="review" id="review">
+        <h1 class="heading">customer <span>review</span></h1>
+        <div class="box-container">
+
+        <div class="box">
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p>the momonga are so cute</p>
+            <div class="user">
+                <img src="r1.jpg" alt=""class="circle-image">
+                <div class="user-info">
+                    <h3>Seven</h3>
+                    <span>verified customer</span>
+                </div>
+            </div>
+            <span class="fas far fa-quote-right"></span>
+        </div>
+        
+        <div class="box">
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p>great quality</p>
+            <div class="user">
+                <img src="r2.jpg" alt=""class="circle-image">
+                <div class="user-info">
+                    <h3>Redtooth</h3>
+                    <span>verified customer</span>
+                </div>
+            </div>
+            <span class="fas far fa-quote-right"></span>
+        </div>
+
+        <div class="box">
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p>will buy it again from here</p>
+            <div class="user">
+                <img src="r4.jpg" alt=""class="circle-image">
+                <div class="user-info">
+                    <h3>He Dachun</h3>
+                    <span>verified customer</span>
+                </div>
+            </div>
+            <span class="fas far fa-quote-right"></span>
+        </div>
+
+        <div class="box">
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p>already order many time so great plush</p>
+            <div class="user">
+                <img src="r6.jpg" alt=""class="circle-image">
+                <div class="user-info">
+                    <h3>Thirteen</h3>
+                    <span>verified customer</span>
+                </div>
+            </div>
+            <span class="fas far fa-quote-right"></span>
+        </div>
+        
+        <div class="box">
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p>i like it so much!</p>
+            <div class="user">
+                <img src="r.jpg" alt=""class="circle-image">
+                <div class="user-info">
+                    <h3>Chairman Jiang</h3>
+                    <span>verified customer</span>
+                </div>
+            </div>
+            <span class="fas far fa-quote-right"></span>
+        </div>
+        
+        <div class="box">
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p>love it!!!</p>
+            <div class="user">
+                <img src="r7.jpg" alt=""class="circle-image">
+                <div class="user-info">
+                    <h3>Eleven</h3>
+                    <span>verified customer</span>
+                </div>
+            </div>
+            <span class="fas far fa-quote-right"></span>
+        </div>
+    </div> 
+<!-- write review -->
+    <button id="write-review">write review</button>
+
+ <!-- Hidden Review Form -->
+ <div id="review-form" style="display: none; margin-top: 20px;">
+    <input type="text" id="review-name" placeholder="Your Name" required>
+    <textarea id="review-text" placeholder="Write your review..." required></textarea>
+
+    <!-- ⭐ Star Rating System -->
+    <div id="star-rating">
+        <span class="star" data-value="1">★</span>
+        <span class="star" data-value="2">★</span>
+        <span class="star" data-value="3">★</span>
+        <span class="star" data-value="4">★</span>
+        <span class="star" data-value="5">★</span>
+    </div>
+
+    <button id="submit-review" class="btn">Submit Review</button>
+</div>
+
+<!-- review section ends -->
+
+</body>
+</html>
+
+
